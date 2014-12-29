@@ -1,7 +1,13 @@
 local autoprop = {}
 
-autoprop.create = function()
+autoprop.create = function(tracer)
 	local meta = {}
+
+	local function trace(...)
+		if type(tracer)=='function' then
+			tracer(...)
+		end
+	end
 
 	------------
 	meta.__index = function ( table, key )
@@ -9,8 +15,8 @@ autoprop.create = function()
 		if value == nil then
 			local res = {}
 			setmetatable(res,meta)
+			trace('__index',table,key,res)
 			rawset(table,key,res)
-			print("new:",key,res)
 			return res
 		end
 		if type(value) == 'table' then
@@ -18,16 +24,14 @@ autoprop.create = function()
 		end
 
 		return value
-		-- error(table,key..' is already taken ('..type(value)..')')
 	end
 
 	---------------
 	meta.__newindex = function ( table, key, value )
-		print("new_:",key,value)
 		if type(value) == 'table' then
 			setmetatable(value,meta)
 		end
-
+		trace('__newindex',table,key,value)
 		rawset(table,key,value)
 		return value
 	end
