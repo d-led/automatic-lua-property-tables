@@ -1,0 +1,3 @@
+local autoprop = {}
+
+return autoprop
