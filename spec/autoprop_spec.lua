@@ -18,7 +18,8 @@ describe("a utility for creating property paths automatically",function()
 	it("should be able to create properties automatically",function ( )
 		local t = autoprop.create()
 		assert.has_no.errors(function()
-			t.first_level_fresh.second_level_value = {}--42 
+			t.first_level_fresh.second_level_value = 42
 		end)
+		assert.are_equal(42,t.first_level_fresh.second_level_value)
 	end)
 end)
