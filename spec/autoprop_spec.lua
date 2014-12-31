@@ -21,11 +21,13 @@ describe("a utility for creating property paths automatically",function()
 			t.first_level_fresh.second_level_value = 42
 		end)
 		assert.are_equal(42,t.first_level_fresh.second_level_value)
+	end)
 
-		it("raises an error if a non-table value is accessed as table",function()
-			assert.has.error(function()
-				t.first_level_fresh.second_level_value.third_level_illegal = 42
-			end)
+	it("raises an error if a non-table value is accessed as table",function()
+		local t = autoprop.create()
+		t.first_level_fresh.second_level_value = 42
+		assert.has.error(function()
+			t.first_level_fresh.second_level_value.third_level_illegal = 42
 		end)
 	end)
 
