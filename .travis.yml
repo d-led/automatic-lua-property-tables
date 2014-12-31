@@ -1,0 +1,8 @@
+language: generic
+
+install:
+ - sudo apt-get install luarocks
+ - sudo luarocks install busted
+
+script:
+  - busted -v
