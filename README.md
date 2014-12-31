@@ -1,6 +1,8 @@
 automatic lua property tables
 -----------------------------
 
+[![Build Status](https://travis-ci.org/d-led/automatic-lua-property-tables.svg?branch=master)](https://travis-ci.org/d-led/automatic-lua-property-tables)
+
 a little excercise
 
 ```lua
