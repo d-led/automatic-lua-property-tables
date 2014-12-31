@@ -28,6 +28,15 @@ describe("a utility for creating property paths automatically",function()
 			end)
 		end)
 	end)
+
+	it("should replace the behavior of all tables passed to it",function()
+		local t = autoprop.create()
+		t.a = {}
+		assert.has_no.errors(function()
+			t.a.b.c = 42
+		end)
+		assert.are_equal(42,t.a.b.c)
+	end)
 end)
 
 describe("example",function()
