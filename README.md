@@ -8,7 +8,7 @@ a little excercise
 ```lua
 local autoprop = assert( require 'autoprop' )
 
-local config = autoprop.create()
+local config = autoprop()
 
 config.some.url = 'http://olivinelabs.com/busted'
 config.some.number = 42

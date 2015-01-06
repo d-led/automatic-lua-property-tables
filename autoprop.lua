@@ -34,11 +34,17 @@ autoprop.create = function(tracer)
 		trace('__newindex',table,key,value)
 		rawset(table,key,value)
 		return value
-	end
+	end	
 
 	local result = {}
 	setmetatable(result,meta)
 	return result
 end
+
+setmetatable(autoprop,{
+	__call = function()
+		return autoprop.create()
+	end	
+})
 
 return autoprop

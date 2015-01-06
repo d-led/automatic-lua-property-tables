@@ -44,7 +44,7 @@ end)
 describe("example",function()
 	it ("should be clear from an example",function()
 
-		local config = autoprop.create()
+		local config = autoprop() -- callable table
 		config.some.url = 'http://olivinelabs.com/busted'
 		config.some.number = 42
 		config.some.other.url = 'https://github.com/nrother/dynamiclua'
