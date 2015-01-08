@@ -39,6 +39,23 @@ describe("a utility for creating property paths automatically",function()
 		end)
 		assert.are_equal(42,t.a.b.c)
 	end)
+
+	it("should be possible to combine autoprop tables",function()
+		local t1 = autoprop()
+		local t2 = autoprop()
+		t1.p1 = t2
+		t1.p1.p2 = 42
+		assert.are_equal(42, t1.p1.p2)
+	end)
+
+	it("should be possible to set multilevel tables as properties",function()
+		local t1 = autoprop()
+		t1.p1 = {
+			p2 = {}
+		}
+		t1.p1.p2.p3.p4 = 42
+		assert.are_equal(42, t1.p1.p2.p3.p4)
+	end)
 end)
 
 describe("example",function()

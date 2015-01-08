@@ -28,9 +28,27 @@ autoprop.create = function(tracer)
 
 	---------------
 	meta.__newindex = function ( table, key, value )
-		if type(value) == 'table' then
-			setmetatable(value,meta)
+		local function set_metatable_of_all_values(t)
+			local seen = {}
+			local stack = { t }
+			while #stack > 0 do
+				local candidate = stack[#stack]
+				stack[#stack] = nil
+				if not seen[candidate] and type(candidate)==type{} then
+					setmetatable(candidate,meta)
+					seen[#seen+1] = candidate
+
+					for _,v in pairs(candidate) do
+						stack[#stack+1] = v
+					end
+				end
+			end
 		end
+
+		if type(value) == 'table' then
+			set_metatable_of_all_values(value)
+		end
+
 		trace('__newindex',table,key,value)
 		rawset(table,key,value)
 		return value
