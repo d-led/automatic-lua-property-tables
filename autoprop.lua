@@ -44,7 +44,6 @@ autoprop.create = function(tracer)
 
 	--------------- on assignment: t.some_key = value
 	meta.__newindex = function ( table, key, value )
-
 		if type(value) == 'table' then
 			set_metatable_of_all_values(value)
 		end
