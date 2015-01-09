@@ -3,7 +3,7 @@ automatic lua property tables
 
 [![Build Status](https://travis-ci.org/d-led/automatic-lua-property-tables.svg?branch=master)](https://travis-ci.org/d-led/automatic-lua-property-tables)
 
-a little excercise
+a little excercise in creating missing table entries/properties automatically:
 
 ```lua
 local autoprop = assert( require 'autoprop' )
@@ -20,6 +20,3 @@ print(config.some.url, config.some.number, config.some.other.url)
 ```
 http://olivinelabs.com/busted       42      https://github.com/nrother/dynamiclua
 ```
-
-
-to be refactored ...
