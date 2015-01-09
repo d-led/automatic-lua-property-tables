@@ -58,7 +58,7 @@ describe("a utility for creating property paths automatically",function()
 	end)
 end)
 
-describe("example",function()
+describe("automatic lua properties",function()
 	it ("should be clear from an example",function()
 
 		local config = autoprop() -- callable table
