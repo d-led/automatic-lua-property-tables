@@ -20,3 +20,5 @@ print(config.some.url, config.some.number, config.some.other.url)
 ```
 http://olivinelabs.com/busted       42      https://github.com/nrother/dynamiclua
 ```
+
+Other implementations: [lua-users wiki: Automagic Tables](http://lua-users.org/wiki/AutomagicTables)
