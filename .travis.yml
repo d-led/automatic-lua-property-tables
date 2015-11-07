@@ -15,7 +15,6 @@ cache:
 
 before_script:
   - luarocks --local install busted
-  - gem install cucumber
 
 script:
   - ~/.luarocks/bin/busted -v
