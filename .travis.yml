@@ -1,8 +1,21 @@
 language: generic
 
-install:
- - sudo apt-get install luarocks
- - sudo luarocks install busted
+sudo: false
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - lua5.1
+      - luarocks
+
+cache:
+  - apt
+
+before_script:
+  - luarocks --local install busted
+  - gem install cucumber
 
 script:
-  - busted -v
+  - ~/.luarocks/bin/busted -v
