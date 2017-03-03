@@ -1,0 +1,20 @@
+pipelines:
+  gocd-rpi-unicorn-hat-monitor:
+    group: defaultGroup
+    locking: off
+    materials:
+      main_repo:
+        git: https://github.com/d-led/automatic-lua-property-tables.git
+        branch: master
+    stages:
+      - test:
+          clean_workspace: false
+          jobs:
+            unit:
+              resources:
+                - net45
+              tasks:
+               - exec:
+                   command: busted
+                   arguments:
+                     - -v
