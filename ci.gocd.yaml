@@ -1,5 +1,5 @@
 pipelines:
-  gocd-rpi-unicorn-hat-monitor:
+  automatic-lua-property-tables:
     group: defaultGroup
     locking: off
     materials:
@@ -12,7 +12,7 @@ pipelines:
           jobs:
             unit:
               resources:
-                - net45
+                - lua
               tasks:
                - exec:
                    command: busted
